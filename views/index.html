@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="row container">
+
+	<div class= "col-md-8" id="map-canvas"></div>
+
+	<div class= "col-md-4">
+		<div class= "row" id="options">
+			<div class = "categories">
+		    <h4>Hotels</h4>
+		    <select>
+		    	{% for hotel in all_hotels %}
+		    	<option>{{ hotel.name }}</option>
+		    	{% endfor %}
+		    </select> 
+		    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+		    <h4>Restaurants</h4>
+		    <select>
+		    	{% for restaurants in all_restaurants %}
+		    	<option>{{ restaurants.name }}</option>
+		    	{% endfor %}
+		    </select>
+		    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+		    <h4>Things To Do</h4>
+		    <select>
+		    	{% for thingsToDo in all_things_to_do %}
+		    	<option>{{ thingsToDo.name }}</option>
+		    	{% endfor %}
+		    </select>
+		    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+		  </div>
+		</div>
+		
+
+		<div class= "row" id= "itinerary">
+			<div class=row id= "dayTitle">
+				<h3> Day 1 <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></h3>
+			</div>
+			<div class= "row" id= "days">
+				<button type="button" class="btn btn-circle">1</button>
+				<button type="button" class="btn btn-circle">2</button>
+				<button type="button" class="btn btn-circle">3</button>
+		    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+			</div>
+			<div class= "row" id= "itList">
+					<h4>My Hotel</h4>
+						<ul class= "category">
+							<li>{{ all_hotels[0].name }}<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></li>
+						</ul>
+					<h4>My Restaurant</h4>
+						<ul class= "category">
+							<li>{{ all_restaurants[0].name }}<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></li>
+						</ul>
+					<h4>My Things To Do</h4>
+						<ul class= "category">
+							<li>{{ all_things_to_do[0].name }}<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></li>
+						</ul>
+			</div>
+		</div>
+	</div>
+<!--end container -->
+</div>
+{% endblock %}

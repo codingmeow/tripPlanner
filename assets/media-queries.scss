@@ -1,0 +1,15 @@
+$mobileBreakpoint: 600px;
+$tabletBreakpoint: 900px;
+
+@mixin mobileView() {
+  @media (max-width: $mobileBreakpoint) {
+    @content
+  }
+}
+
+
+@mixin tabletView() {
+  @media (max-width: $tabletBreakpoint) and (min-width: $mobileBreakpoint) {
+    @content
+  }
+}
