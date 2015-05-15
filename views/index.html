@@ -2,64 +2,82 @@
 
 {% block content %}
 
-<div class="row container">
+<!-- left panel -->
+
+<div class="row container-fluid">
 
 	<div class= "col-md-8" id="map-canvas"></div>
 
-	<div class= "col-md-4">
-		<div class= "row" id="options">
+<!-- right panel -->
+
+	<div class= "col-md-4 container-fluid" id="right-panel">
+		<div class= "row options">
 			<div class = "categories">
 		    <h4>Hotels</h4>
-		    <select>
+		    <select id="selectedHotel">
 		    	{% for hotel in all_hotels %}
 		    	<option>{{ hotel.name }}</option>
 		    	{% endfor %}
 		    </select> 
-		    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+		    <button class = "btn btn-xs btn-success add btn-circle" id="add-hotel">+</button>
 		    <h4>Restaurants</h4>
-		    <select>
+		    <select id="selectedRestaurant">
 		    	{% for restaurants in all_restaurants %}
 		    	<option>{{ restaurants.name }}</option>
 		    	{% endfor %}
 		    </select>
-		    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+		    <button class = "btn btn-xs btn-success add btn-circle" id="add-rest">+</button>
 		    <h4>Things To Do</h4>
-		    <select>
+		    <select id="selectedToDo">
 		    	{% for thingsToDo in all_things_to_do %}
 		    	<option>{{ thingsToDo.name }}</option>
 		    	{% endfor %}
 		    </select>
-		    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+		    <button class = "btn btn-xs btn-success add btn-circle" id="add-todo">+</button>
 		  </div>
 		</div>
 		
 
-		<div class= "row" id= "itinerary">
-			<div class=row id= "dayTitle">
-				<h3> Day 1 <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></h3>
-			</div>
+		<div id="itinerary" class="col-xs-6 col-sm-12">
+
+			<h3>
+				<span id="day-title">
+					<span id="selectedDay">Day 1</span>
+					<button class = "btn btn-xs btn-danger remove btn-circle">x</button>
+				</span>
+			</h3>
 			<div class= "row" id= "days">
-				<button type="button" class="btn btn-circle">1</button>
-				<button type="button" class="btn btn-circle">2</button>
-				<button type="button" class="btn btn-circle">3</button>
-		    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+				<button type="button" class="btn btn-circle buttonDays" id= "Day 1">1</button>
+				<button class = "btn btn-xs btn-success add btn-circle" id="add-day">+</button>
 			</div>
+
 			<div class= "row" id= "itList">
-					<h4>My Hotel</h4>
-						<ul class= "category">
-							<li>{{ all_hotels[0].name }}<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></li>
-						</ul>
-					<h4>My Restaurant</h4>
-						<ul class= "category">
-							<li>{{ all_restaurants[0].name }}<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></li>
-						</ul>
-					<h4>My Things To Do</h4>
-						<ul class= "category">
-							<li>{{ all_things_to_do[0].name }}<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></li>
-						</ul>
+				<h4>My Hotel</h4>
+				<div id="addedHotel">
+					
+					<!-- <span><button class = "btn btn-xs btn-danger remove btn-circle">x</button></span> -->
+				</div>
+				<h4>My Restaurant</h4>
+				<div id="addedRest">
+					
+				</div>
+				<h4>My Things To Do</h4>
+				<div id= "addedToDo">
+					
+					<!-- <span><button class = "btn btn-xs btn-danger remove btn-circle">x</button></span> -->
+				</div>
 			</div>
-		</div>
-	</div>
+		</div> <!-- end itinerary -->
+<!-- 	</div> -->
 <!--end container -->
 </div>
+
+<script>
+{% autoescape false %}
+var all_hotels = {{ hotels | json }};
+var all_restaurants = {{ restaurants | json }};
+var all_things_to_do = {{ things_to_do | json }};
+{% endautoescape %}
+</script>
+
 {% endblock %}

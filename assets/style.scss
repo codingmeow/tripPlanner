@@ -8,6 +8,37 @@ body {
 		background-color: #B9B9C7;
 }
 
+#right-panel {
+	// margin:10px;
+	margin-top: 50px;
+	> div {
+		.categories {
+			margin: 10px;
+			height: 200px;
+			border-radius: 15px;
+			background-color: #F0F0F5;
+		}
+	}
+}
+
+// #itinerary {
+//   h3 {
+//     text-align: center;
+//     #day-title {
+//       padding: 5px;
+//       border: 1px solid $medium-brown;
+//       border-radius: 5px;
+//       > * {
+//         display: inline-block;
+//         vertical-align: middle;
+//       }
+//       > .remove {
+//         margin-left: 1em;
+//       }
+//     }
+//   }
+// }
+
 .navbar {
 	.navbar-brand {
 		color: #FFFF99;
@@ -17,41 +48,22 @@ body {
 	border: 0;
 }
 
-.col-md-8 {
-	height: 550px;
-	position: fixed;
-	#map-canvas {
-		height: 50vh;
-	}
+#map-canvas {
+	// position: fixed;
+	height: calc(100vh);
 	@include tabletView() {
    display: block;
    width: 95%;
+   margin: 0 auto;
  }
 }
 
-.col-md-4 {
-	@include tabletView() {
-   .categories {
-   	display: inline;
-   	max-width: 40%;
-   	float: left;
-   }
-   #itinerary {
-   	display: inline;
-   	max-width: 50%;
-   	float: left;
-   }
- }
-}
-
-.row {
-	width: 100%;
-	margin: 10px auto;
 	.categories {
 		height: 200px;
 		border-radius: 15px;
 		background-color: #F0F0F5;
 		padding: 10px;
+		margin: 0 10px 0 10px;
 		h4 {
 			color: #B9B9C7;			
 		}
@@ -71,17 +83,14 @@ body {
 	}
 
 
-	#dayTitle {
+	.dayTitle {
 		text-align: center;
 		border: solid;
 		border-width: 1px;
 		border-radius: 10px;
-		max-width: 28%;
+		// margin: 0 10px 0 10px;
+		// max-width: 28%;
 		color: #47476B;
-		h3 {
-			margin-top: 10px;
-			margin-bottom: 10px;
-		}
 	}
 
 	#days {
@@ -89,8 +98,8 @@ body {
 		border-radius: 15px 15px 0 0;
 		background-color: #47476B;
 		padding: 10px;
-		margin-bottom: 0;
-		margin-top: -5px;
+		margin: 10px 10px 0 10px;
+		// margin-top: -5px;
 		.btn-circle {
 			width: 30px;
 		  height: 30px;
@@ -106,11 +115,11 @@ body {
 	}
 
 	#itList {
-		height: 220px;
+		height: 500px;
 		border-radius: 0 0 15px 15px;
 		background-color: #F0F0F5;
 		padding: 10px;
-		margin-top: 0;
+		margin: 0 10px 0 10px;
 		h4 {
 			color: #B9B9C7;
 		}
@@ -119,9 +128,9 @@ body {
 			padding-left: 0;
 		}
 	}
-}
 
-.container {
-	margin: 50px 0 0 0;
-	padding: 0;
-}
+
+// .container {
+// 	margin: 50px 0 0 0;
+// 	padding: 0;
+// }
