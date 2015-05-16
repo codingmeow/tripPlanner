@@ -1,3 +1,5 @@
+
+
 $(document).ready(function( ){
 	var currentDay = 1;
 	var Day = function(){
@@ -9,13 +11,29 @@ $(document).ready(function( ){
 
 
 
+
+
+
+
+
+
 // adding to itinerary
 
 	$('#add-hotel').click(function() {
 		var selectedH = $("#selectedHotel :selected").text();
-		daysArray[currentDay-1].hotels.push(selectedH);
-		console.log(daysArray);
-		$("#addedHotel").append("<p>" + selectedH + "  " + "<span id= 'removeH'><button class= 'btn btn-xs btn-danger remove btn-circle'>x</button></span></p>");
+		
+		// daysArray[currentDay-1].hotels.push(selectedH);
+		// $("#addedHotel").append("<p>" + selectedH + "  " + "<span id= 'removeH'><button class= 'btn btn-xs btn-danger remove btn-circle'>x</button></span></p>");
+		
+		// var marker = new google.maps.Marker({
+  //       position: new google.maps.LatLng(thisLocation[0],thisLocation[1]),
+  //       title: selectedH
+  //   });
+    // Add the marker to the map by calling setMap()
+    // marker.setMap(map);
+    addElement(selectedH, "hotels", "#addedHotel", "removeH", all_hotels, daysArray, currentDay);
+
+
 	})
 
 	$('#add-rest').click(function() {
@@ -112,15 +130,17 @@ $('#days').delegate('.buttonDays', 'click', function(){
 		daysArray.push(new Day());
 		currentDay++;
 		$('<button type="button" class="btn btn-circle buttonDays" id= "Day '+currentDay+'">'+ currentDay+'</button>').insertBefore($(this));
+		$('#add-day').prev().trigger('click');
 	})
 
 //remove a day
 	$('#day-title').delegate('#remove-day', 'click', function () {
 		daysArray.splice(currentDay-1, 1);
 		console.log(daysArray);
+		$("#add-day").prev().prev().trigger('click');
 		$("#add-day").prev().remove();
-	});
 
+	});
 
 });
 

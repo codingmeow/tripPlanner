@@ -10,28 +10,39 @@ var Restaurant = models.Restaurant;
 
 //promises
 
-router.get('/slowPromises', function(req, res, next){
-    Hotel
-    .find()
-    .exec()
-    .then(function(hotels){
-        res.locals.hotels = hotels;
-        return Restaurant.find().exec();
-    })
-    .then(function(restaurants){
-        res.locals.restaurants = restaurants;
-        return ThingToDo.find().exec();
-    })
-    .then(function(thingsToDo){
-        res.locals.thingsToDo = thingsToDo;
-        // console.log(res.locals);
-        res.json(res.locals);
-    })
-})
+// router.get('/slowPromises', function(req, res, next){
+//     Hotel
+//     .find()
+//     .exec()
+//     .then(function(hotels){
+//         res.locals.hotels = hotels;
+//         return Restaurant.find().exec();
+//     })
+//     .then(function(restaurants){
+//         res.locals.restaurants = restaurants;
+//         return ThingToDo.find().exec();
+//     })
+//     .then(function(thingsToDo){
+//         res.locals.thingsToDo = thingsToDo;
+//         // console.log(res.locals);
+//         res.json(res.locals);
+//     })
+// })
 
-router.get('/fastPromises', function(req, res, next){
-    Promise.join()
-})
+// router.get('/', function(req, res, next) {
+//   Promise.join(
+//     Restaurant.find().exec(),
+//     ThingToDo.find().exec(),
+//     Hotel.find().exec()
+//   )
+//   .spread(function(restaurants, thingToDo, hotels) {
+//     res.render('index', {
+//       all_hotels: hotels,
+//       all_restaurants: restaurants,
+//       all_things_to_do: thingToDo
+//     })
+//   })
+// })
 
 //async
 
